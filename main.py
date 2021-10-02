@@ -1,7 +1,8 @@
 import pyttsx3
 import speech_recognition as sr
 import wikipedia
-
+import webbrowser # new import which helps to navigate on chrome
+import time #import time module to freeze application for few moments
 speaker = pyttsx3.init('sapi5')
 voices = speaker.getProperty('voices')
 speaker.setProperty('voice', voices[1].id)
@@ -142,6 +143,14 @@ if __name__ == "__main__":
             exx_exit = 'See you soon. Bye'
             speakwithme(exx_exit)
             exit()
+            
+            ############ features which finds any location on maps #######
+        elif ("find" in askme and "location" in askme) 
+                speakwithme("what do you want to locate")
+                askme = takeCmd().lower() #takes location name which user want to locate
+                webbrowser.get().open('https://google.nl/maps/place/' + askme + "/@amp;")#open chrome and shows the location google maps
+                time.sleep(2)#used to freeze applicatio n for 2 seconds before executing next
+                speakwithme(f"here is the location of {askme}")#speaks the statement written in quotes
 
         else:
             tempp = askedme.replace(' ', '+')
