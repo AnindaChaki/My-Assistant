@@ -1,6 +1,11 @@
 import pyttsx3
 import speech_recognition as sr
 import wikipedia
+import pyjokes
+import webbrowser
+import datetime
+import os
+import random
 
 speaker = pyttsx3.init('sapi5')
 voices = speaker.getProperty('voices')
@@ -81,6 +86,10 @@ if __name__ == "__main__":
         elif 'the time' in askedme:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")
             speakwithme(f"the time is {strTime}")
+
+        elif 'tell me something funny' in askedme:
+            joke= speakwithme(pyjokes.get_joke())
+            print(joke)    
 
         elif 'open youtube' in askedme:
             webbrowser.open("www.youtube.com")
